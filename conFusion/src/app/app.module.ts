@@ -12,6 +12,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
+import { DrawerComponent } from './shared/drawer/drawer.component';
 
 @NgModule({
     bootstrap: [
@@ -26,7 +27,8 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component';
     declarations: [
         AppComponent,
         MenuComponent,
-        DishdetailComponent
+        DishdetailComponent,
+        DrawerComponent
     ],
     providers: [
         {provide:'BaseURL', useValue: baseURL},
