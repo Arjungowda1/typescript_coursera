@@ -3,6 +3,9 @@
     <Label row="0" column="1" text="Ristorante Con Fusion" class="sidedrawer-header-brand" textWrap="true"></Label>
 </GridLayout>
 <StackLayout class="sidedrawer-content">
+    <GridLayout columns="auto" class="sidedrawer-list-item" [nsRouterLink]="['/home']" clearHistory="true">
+        <Label col="1" text="Home" class="sidedrawer-list-item-text"></Label>
+    </GridLayout>
     <GridLayout columns="auto" class="sidedrawer-list-item" [nsRouterLink]="['/menu']" clearHistory="true">
         <Label col="1" text="Menu" class="sidedrawer-list-item-text"></Label>
     </GridLayout>
