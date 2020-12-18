@@ -7,6 +7,7 @@ import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 import { DishService } from './services/dish.service';
 import { baseURL } from './shared/baseurl';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
+import { FavoriteService } from './services/favorite.service';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -48,7 +49,8 @@ import { LeaderService } from './services/leader.service';
         DishService,
         ProcessHTTPMsgService,
         PromotionService,
-        LeaderService
+        LeaderService,
+        FavoriteService
 
     ],
     schemas: [
