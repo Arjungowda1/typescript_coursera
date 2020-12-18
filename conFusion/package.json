@@ -31,6 +31,8 @@
     "@nativescript/angular": "~11.0.0",
     "@nativescript/core": "~7.0.0",
     "@nativescript/theme": "~3.0.0",
+    "font-awesome": "^4.7.0",
+    "nativescript-ngx-fonticon": "^7.0.0",
     "nativescript-telerik-ui-pro": "^3.1.4",
     "nativescript-ui-sidedrawer": "^9.0.3",
     "reflect-metadata": "~0.1.12",

@@ -3,16 +3,20 @@
     <Label row="0" column="1" text="Ristorante Con Fusion" class="sidedrawer-header-brand" textWrap="true"></Label>
 </GridLayout>
 <StackLayout class="sidedrawer-content">
-    <GridLayout columns="auto" class="sidedrawer-list-item" [nsRouterLink]="['/home']" clearHistory="true">
-        <Label col="1" text="Home" class="sidedrawer-list-item-text"></Label>
+    <GridLayout rows="*" columns="50 *" class="sidedrawer-list-item" [nsRouterLink]="['/home']" clearHistory="true">
+        <Label row="0" col="0" class="sidedrawer-list-item-text fa" [text]="'fa-home' | fontIcon"></Label>
+        <Label row="0" col="1" text="Home" class="sidedrawer-list-item-text"></Label>
     </GridLayout>
-    <GridLayout columns="auto" class="sidedrawer-list-item" [nsRouterLink]="['/menu']" clearHistory="true">
-        <Label col="1" text="Menu" class="sidedrawer-list-item-text"></Label>
+    <GridLayout rows="*" columns="50 *" class="sidedrawer-list-item" [nsRouterLink]="['/menu']" clearHistory="true">
+        <Label row="0" col="0" class="sidedrawer-list-item-text fa" [text]="'fa-info-circle' | fontIcon"></Label>
+        <Label row="0" col="1" text="Menu" class="sidedrawer-list-item-text"></Label>
     </GridLayout>
-    <GridLayout columns="auto" class="sidedrawer-list-item" [nsRouterLink]="['/aboutus']" clearHistory="true">
-        <Label col="1" text="About Us" class="sidedrawer-list-item-text"></Label>
+    <GridLayout rows="*" columns="50 *" class="sidedrawer-list-item" [nsRouterLink]="['/aboutus']" clearHistory="true">
+        <Label row="0" col="0" class="sidedrawer-list-item-text fa" [text]="'fa-list' | fontIcon"></Label>
+        <Label row="0" col="1" text="About Us" class="sidedrawer-list-item-text"></Label>
     </GridLayout>
-    <GridLayout columns="auto" class="sidedrawer-list-item" [nsRouterLink]="['/contact']" clearHistory="true">
-        <Label col="1" text="Contact" class="sidedrawer-list-item-text"></Label>
+    <GridLayout rows="*" columns="50 *" class="sidedrawer-list-item" [nsRouterLink]="['/contact']" clearHistory="true">
+        <Label row="0" col="0" class="sidedrawer-list-item-text fa" [text]="'fa-address-card' | fontIcon"></Label>
+        <Label row="0" col="1" text="Contact" class="sidedrawer-list-item-text"></Label>
     </GridLayout>
 </StackLayout>

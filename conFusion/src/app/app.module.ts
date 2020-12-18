@@ -2,7 +2,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "@nativescript/angular";
 import { HttpClientModule } from '@angular/common/http';
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
-
+import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 
 import { DishService } from './services/dish.service';
 import { baseURL } from './shared/baseurl';
@@ -29,7 +29,10 @@ import { LeaderService } from './services/leader.service';
         NativeScriptModule,
         AppRoutingModule,
         HttpClientModule,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        TNSFontIconModule.forRoot({
+            'fa': './fonts/font-awesome.min.css'
+        })
     ],
     declarations: [
         AppComponent,
