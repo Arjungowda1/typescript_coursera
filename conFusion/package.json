@@ -39,6 +39,7 @@
     "reflect-metadata": "~0.1.12",
     "rxjs": "^6.6.0",
     "tns-core-modules": "^6.5.24",
+    "ui": "^0.2.4",
     "zone.js": "~0.11.1"
   },
   "devDependencies": {

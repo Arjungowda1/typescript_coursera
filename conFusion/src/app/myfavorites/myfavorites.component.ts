@@ -40,23 +40,6 @@ export class  MyfavoritesComponent extends DrawerPage implements OnInit {
             neutralButtonText: "Cancel"
         });
     
-        confirm(options).then((result: boolean) => {
-            if(result) {
-    
-              this.favorites = null;
-    
-              this.favoriteService.deleteFavorite(id)
-                  .subscribe(favorites => { 
-                    const toast = new Toasty("Deleted Dish "+ id, "short" , "bottom");
-                    toast.show();
-                    this.favorites = new ObservableArray(favorites);
-                  },
-                  errmess => this.errMess = errmess);
-            }
-            else {
-              console.log('Delete cancelled');
-            }
-        });
     }
 
     public onCellSwiping(args: ListViewEventData) {
