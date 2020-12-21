@@ -15,7 +15,7 @@ export class DrawerPage implements AfterViewInit{
     }
 
     protected openDrawer(){
-        this.drawer.openDrawer();
+        this.drawer.showDrawer();
     }
 
     protected closeDrawer(){

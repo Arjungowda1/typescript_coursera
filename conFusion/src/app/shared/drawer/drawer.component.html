@@ -19,4 +19,8 @@
         <Label row="0" col="0" class="sidedrawer-list-item-text fa" [text]="'fa-address-card' | fontIcon"></Label>
         <Label row="0" col="1" text="Contact" class="sidedrawer-list-item-text"></Label>
     </GridLayout>
+    <GridLayout rows="*" columns="50 *" class="sidedrawer-list-item" [nsRouterLink]="['/myfavorites']" clearHistory="true">
+        <Label row="0" col="0" class="sidedrawer-list-item-text fa" [text]="'fa-heart' | fontIcon"></Label>
+        <Label row="0" col="1" text="My Favorites" class="sidedrawer-list-item-text"></Label>
+    </GridLayout>
 </StackLayout>

@@ -37,6 +37,7 @@
     "nativescript-ui-sidedrawer": "^9.0.3",
     "reflect-metadata": "~0.1.12",
     "rxjs": "^6.6.0",
+    "tns-core-modules": "^6.5.24",
     "zone.js": "~0.11.1"
   },
   "devDependencies": {
