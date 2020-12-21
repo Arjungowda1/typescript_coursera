@@ -22,6 +22,8 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { MyfavoritesComponent } from './myfavorites/myfavorites.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { ReservationModalComponent } from "./reservationmodal/reservationmodal.component";
+
 
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
@@ -52,8 +54,10 @@ import { LeaderService } from './services/leader.service';
         ContactComponent,
         AboutusComponent,
         MyfavoritesComponent,
-        ReservationComponent
+        ReservationComponent,
+        ReservationModalComponent
     ],
+    entryComponents: [ReservationModalComponent],
     providers: [
         {provide:'BaseURL', useValue: baseURL},
         DishService,
