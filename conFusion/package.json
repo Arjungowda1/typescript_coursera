@@ -34,6 +34,7 @@
     "font-awesome": "^4.7.0",
     "nativescript-ngx-fonticon": "^7.0.0",
     "nativescript-telerik-ui-pro": "^3.1.4",
+    "nativescript-toasty": "^3.0.0-alpha.2",
     "nativescript-ui-sidedrawer": "^9.0.3",
     "reflect-metadata": "~0.1.12",
     "rxjs": "^6.6.0",

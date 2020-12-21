@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 import { FavoriteService } from '../services/favorite.service';
 import {TNSFontIconService} from 'nativescript-ngx-fonticon';
+import { Toasty } from 'nativescript-toasty';
 
 @Component({
   selector: 'app-dishdetail',
@@ -46,8 +47,11 @@ export class DishdetailComponent implements OnInit {
   }
 
   addToFavorites() {
-    if(!this.favorite){
+    if (!this.favorite) {
+      console.log('Adding to Favorites', this.dish.id);
       this.favorite = this.favoriteService.addFavorite(this.dish.id);
+      const toast = new Toasty("Added Dish "+ this.dish.id, "short", "bottom");
+      toast.show();
     }
   }
 

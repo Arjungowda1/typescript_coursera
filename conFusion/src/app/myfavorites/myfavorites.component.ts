@@ -6,6 +6,7 @@ import { RadListViewComponent } from 'nativescript-telerik-ui-pro/listview/angul
 import { ObservableArray } from "tns-core-modules/data/observable-array";
 import { View } from 'tns-core-modules/ui/core/view';
 import { DrawerPage } from '../shared/drawer/drawer.page';
+import { Toasty } from 'nativescript-toasty';
 @Component({
     selector:'app-myfavorites',
     templateUrl:'./myfavorites.component.html',
@@ -31,9 +32,31 @@ export class  MyfavoritesComponent extends DrawerPage implements OnInit {
     }
 
     deleteFavorite(id: number){
-        this.favoriteService.deleteFavorite(id)
-        .subscribe(favorites => this.favorites =  new ObservableArray(favorites),
-        err => this.errMess = err);
+        let options = ({
+            title: "Confirm Delete",
+            message: 'Do you want to delete Dish '+ id,
+            okButtonText: "Yes",
+            cancelButtonText: "No",
+            neutralButtonText: "Cancel"
+        });
+    
+        confirm(options).then((result: boolean) => {
+            if(result) {
+    
+              this.favorites = null;
+    
+              this.favoriteService.deleteFavorite(id)
+                  .subscribe(favorites => { 
+                    const toast = new Toasty("Deleted Dish "+ id, "short" , "bottom");
+                    toast.show();
+                    this.favorites = new ObservableArray(favorites);
+                  },
+                  errmess => this.errMess = errmess);
+            }
+            else {
+              console.log('Delete cancelled');
+            }
+        });
     }
 
     public onCellSwiping(args: ListViewEventData) {
