@@ -3,13 +3,25 @@ import { Observable, throwError } from 'rxjs';
 import { Dish } from '../shared/dish';
 import { DishService } from './dish.service';
 import { map } from 'rxjs/operators';
+import { CouchbaseService } from '../services/couchbase.service';
 
 @Injectable()
 
 export class FavoriteService {
     favorites: Array <number>;
-    constructor(private dishService:DishService) {
+    docId: string = "favorites";
+
+    constructor(private dishService:DishService,
+        private couchbaseService:CouchbaseService) {
         this.favorites = [];
+
+        let doc = this.couchbaseService.getDocument(this.docId);
+        if (doc == null){
+            this.couchbaseService.createDocument({"favorites":[]}, this.docId);
+        }
+        else{
+            this.favorites = doc.favorites;
+        }
     }
 
     isFavorite(id:number):boolean{
@@ -20,6 +32,7 @@ export class FavoriteService {
         if(!this.isFavorite(id))
         {
             this.favorites.push(id);
+            this.couchbaseService.updateDocument({"favorites": this.favorites}, this.docId);
         }
         return true;
     }
@@ -34,6 +47,7 @@ export class FavoriteService {
         let index = this.favorites.indexOf(id);
         if (index >= 0) {
             this.favorites.splice(index,1);
+            this.couchbaseService.updateDocument({"favorites": this.favorites}, this.docId);
             return this.getFavorites();
         }
         else {

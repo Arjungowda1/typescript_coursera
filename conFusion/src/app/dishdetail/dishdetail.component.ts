@@ -10,6 +10,7 @@ import {TNSFontIconService} from 'nativescript-ngx-fonticon';
 import { ModalDialogOptions, ModalDialogService } from '@nativescript/angular/common';
 import { Toasty } from 'nativescript-toasty';
 import { CommentModalComponent } from '../comment/comment.component';
+import { action } from '@nativescript/core/ui';
 
 @Component({
   selector: 'app-dishdetail',

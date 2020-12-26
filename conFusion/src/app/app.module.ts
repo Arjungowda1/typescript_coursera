@@ -27,6 +27,7 @@ import { CommentModalComponent } from './comment/comment.component';
 
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { CouchbaseService } from './services/couchbase.service';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { LeaderService } from './services/leader.service';
         ProcessHTTPMsgService,
         PromotionService,
         LeaderService,
-        FavoriteService
+        FavoriteService,
+        CouchbaseService
 
     ],
     schemas: [
