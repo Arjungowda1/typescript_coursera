@@ -1,7 +1,7 @@
 <ActionBar title="Reserve Table" class="action-bar">
     <NavigationButton text="Menu" icon="res://ic_drawer" (tap)="openDrawer()"></NavigationButton>
 </ActionBar>
-<ScrollView orientation="vertical" tkMainContent class="page">
+<StackLayout orientation="vertical" tkMainContent class="page">
     <GridLayout id = "reserveTableGridLayout" class="m-5" rows="auto auto auto auto"
      columns="*, *" [formGroup]="reservation" [visibility]="!(isSubmittedState) ? 'visible' : 'collapsed'">
         <Label class="h3 m-15" row="0" col="0" text="No. of Guests" textWrap="true"></Label>
@@ -31,4 +31,4 @@
         <Label class="h3 m-15" row="2" col="0" text="Date and Time" textWrap="true"></Label>
         <Label class="h3 m-15" [text]="submittedDate | date:'medium'" row="2" col="1"></Label>
     </GridLayout>
-</ScrollView>
+</StackLayout>
