@@ -10,7 +10,13 @@ import {TNSFontIconService} from 'nativescript-ngx-fonticon';
 import { ModalDialogOptions, ModalDialogService } from '@nativescript/angular/common';
 import { ToastDuration, ToastPosition, Toasty } from 'nativescript-toasty';
 import { CommentModalComponent } from '../comment/comment.component';
-import { action } from '@nativescript/core/ui';
+import { action, View } from '@nativescript/core/ui';
+import { Page } from '@nativescript/core/ui/page';
+import { Animation, AnimationDefinition } from '@nativescript/core/ui/animation';
+import { SwipeGestureEventData, SwipeDirection } from '@nativescript/core/ui/gestures';
+import { Color } from "tns-core-modules/color";
+import * as enums from '@nativescript/core/ui/enums';
+
 
 @Component({
   selector: 'app-dishdetail',
@@ -25,6 +31,11 @@ export class DishdetailComponent implements OnInit {
   numcomments: number;
   favorite: boolean = false;
 
+  showComments: boolean = false;
+  cardImage: View;
+  commentList: View;
+  cardLayout: View;
+
 
   constructor(private dishservice: DishService,
     private route: ActivatedRoute,
@@ -33,6 +44,7 @@ export class DishdetailComponent implements OnInit {
     private fonticon:TNSFontIconService,
     private _modalService: ModalDialogService,
     private vcRef: ViewContainerRef,
+    private page: Page,
     @Inject('BaseURL') public BaseURL) { }
 
   ngOnInit() {
@@ -97,5 +109,99 @@ createModalView() {
           this.dish.comments.push(result);
       });
 
+}
+
+  onSwipe(args: SwipeGestureEventData){
+    if(args.direction === SwipeDirection.up){
+      this.animateUp();
+    }
+    else if(args.direction ==  SwipeDirection.down){
+      this.animateDown();
+    }
+  }
+
+
+  showAndHideComments(){
+    if(!this.showComments){
+      this.animateUp();
+    }
+    else{
+      this.animateDown();
+    }
+  }
+
+
+  animateUp(){
+    if(this.dish && !this.showComments){
+      this.cardImage = this.page.getViewById<View>('cardImage');
+      this.cardLayout = this.page.getViewById<View>('cardLayout');
+      this.commentList = this.page.getViewById<View>('commentList');
+
+      let definitions = new Array<AnimationDefinition>();
+      
+      let a1: AnimationDefinition = {
+        target:this.cardImage,
+        scale:{ x: 1, y:0},
+        translate: { x:0 , y:-200},
+        opacity: 0,
+        duration: 500,
+        curve:enums.AnimationCurve.easeIn
+      };
+      definitions.push(a1);
+
+      let a2: AnimationDefinition = {
+        target:this.cardLayout,
+        backgroundColor: new Color('#ff01c7'),
+        duration:500,
+        curve:enums.AnimationCurve.easeIn
+      };
+      definitions.push(a2);
+
+      let animationSet =  new Animation(definitions);
+      animationSet.play()
+      .then(() => {
+        this.showComments = true;
+      })
+      .catch((e) => {
+        console.log(e.message);
+      })
+    }
+  }
+
+  animateDown() {
+    if(this.dish && !this.showComments){
+      this.cardImage = this.page.getViewById<View>('cardImage');
+      this.cardLayout = this.page.getViewById<View>('cardLayout');
+      this.commentList = this.page.getViewById<View>('commentList');
+
+      this.showComments = false;
+
+    let definitions = new Array<AnimationDefinition>();
+    let a1: AnimationDefinition = {
+        target: this.cardImage,
+        scale: { x: 1, y: 1 },
+        translate: { x: 0, y: 0 },
+        opacity: 1,
+        duration: 500,
+        curve: enums.AnimationCurve.easeIn
+    };
+    definitions.push(a1);
+
+    let a2: AnimationDefinition = {
+        target: this.cardLayout,
+        backgroundColor: new Color("#ffffff"),
+        duration: 500,
+        curve: enums.AnimationCurve.easeIn
+    };
+    definitions.push(a2);
+
+    let animationSet = new Animation(definitions);
+
+    animationSet.play().then(() => {
+    })
+    .catch((e) => {
+        console.log(e.message);
+    });
+  } 
 }
 }

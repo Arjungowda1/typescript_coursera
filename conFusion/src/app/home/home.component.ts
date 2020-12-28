@@ -9,8 +9,7 @@ import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import { SwipeGestureEventData, SwipeDirection } from 'ui/dom';
 import * as enums from 'ui/dom';
 import { DrawerPage } from '../shared/drawer/drawer.page';
-import { Page } from 'tns-core-modules/ui/page';
-import { View } from '@nativescript/core/ui/core/view';
+import { Page, View } from '@nativescript/core/ui';
 
 @Component({
   selector: 'app-home',
