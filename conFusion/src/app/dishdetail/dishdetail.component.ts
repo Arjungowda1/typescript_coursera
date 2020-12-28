@@ -8,7 +8,7 @@ import { switchMap } from 'rxjs/operators';
 import { FavoriteService } from '../services/favorite.service';
 import {TNSFontIconService} from 'nativescript-ngx-fonticon';
 import { ModalDialogOptions, ModalDialogService } from '@nativescript/angular/common';
-import { Toasty } from 'nativescript-toasty';
+import { ToastDuration, ToastPosition, Toasty } from 'nativescript-toasty';
 import { CommentModalComponent } from '../comment/comment.component';
 import { action } from '@nativescript/core/ui';
 
@@ -55,7 +55,8 @@ export class DishdetailComponent implements OnInit {
     if (!this.favorite) {
         console.log('Adding to Favorites', this.dish.id);
         this.favorite = this.favoriteService.addFavorite(this.dish.id);
-        const toast = new Toasty("Added Dish " + this.dish.id, "short", "bottom");
+        const toast = new Toasty({text:"Added Dish " + this.dish.id}).setToastDuration(ToastDuration.LONG)
+        .setToastPosition(ToastPosition.BOTTOM);
         toast.show();
     }
 }
