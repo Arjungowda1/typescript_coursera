@@ -5,6 +5,7 @@ import { getString, setString } from "tns-core-modules/application-settings";
 import { RouterExtensions } from '@nativescript/angular/router';
 import * as camera from 'nativescript-camera';
 import { Image } from '@nativescript/core/ui/image';
+import * as imagepicker from "nativescript-imagepicker";
 
 @Component({
     templateUrl: './userauth.component.html'
@@ -53,6 +54,26 @@ export class UserAuthComponent implements OnInit {
                 .catch((err) => console.log('Error -> ' + err.message));
         }
 
+    }
+
+    getFromLibrary() {
+
+        let context = imagepicker.create({
+            mode: "single"
+        });
+        let image = <Image>this.page.getViewById<Image>('myPicture');
+        context
+            .authorize()
+            .then(function () {
+
+                return context.present();
+            })
+            .then(function (selection) {
+                selection.forEach(function (selected) {
+                    image.src = selected;
+                });
+
+            }).catch((err) => console.log('Error -> ' + err.message));
     }
 
     register() {
