@@ -4,6 +4,8 @@ import { Dish } from '../shared/dish';
 import { DishService } from './dish.service';
 import { map } from 'rxjs/operators';
 import { CouchbaseService } from '../services/couchbase.service';
+import { LocalNotifications } from 'nativescript-local-notifications';
+
 
 @Injectable()
 
@@ -33,6 +35,13 @@ export class FavoriteService {
         {
             this.favorites.push(id);
             this.couchbaseService.updateDocument({"favorites": this.favorites}, this.docId);
+            LocalNotifications.schedule([{
+                id: +id,
+                title: "ConFusion Favorites",
+                body: 'Dish ' + id + ' added successfully'
+              }])
+              .then(() => console.log('Notification scheduled'),
+                (error) => console.log('Error showing nofication ' + error));
         }
         return true;
     }

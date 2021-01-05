@@ -7,6 +7,8 @@ import { ObservableArray } from "tns-core-modules/data/observable-array";
 import { View } from 'tns-core-modules/ui/core/view';
 import { DrawerPage } from '../shared/drawer/drawer.page';
 import { Toasty } from 'nativescript-toasty';
+
+
 @Component({
     selector:'app-myfavorites',
     templateUrl:'./myfavorites.component.html',
