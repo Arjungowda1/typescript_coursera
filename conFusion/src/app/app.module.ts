@@ -24,6 +24,7 @@ import { MyfavoritesComponent } from './myfavorites/myfavorites.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ReservationModalComponent } from "./reservationmodal/reservationmodal.component";
 import { CommentModalComponent } from './comment/comment.component';
+import { UserAuthComponent } from "./userauth/userauth.component"; 
 
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
@@ -56,7 +57,8 @@ import { CouchbaseService } from './services/couchbase.service';
         AboutusComponent,
         MyfavoritesComponent,
         ReservationComponent,
-        ReservationModalComponent
+        ReservationModalComponent,
+        UserAuthComponent
     ],
     entryComponents: [ReservationModalComponent,
         CommentModalComponent],
