@@ -29,6 +29,7 @@ import { UserAuthComponent } from "./userauth/userauth.component";
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { CouchbaseService } from './services/couchbase.service';
+import { PlatformService } from './services/platform.service';
 
 
 @NgModule({
@@ -69,8 +70,8 @@ import { CouchbaseService } from './services/couchbase.service';
         PromotionService,
         LeaderService,
         FavoriteService,
-        CouchbaseService
-
+        CouchbaseService,
+        PlatformService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
